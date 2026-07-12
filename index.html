@@ -3,460 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amrendra Mishra | Developer Portfolio</title>
+    <title>Amrendra Mishra — VP @ JPMorgan Chase | AI Builder</title>
+    <meta name="description" content="Vice President at JPMorgan Chase. Built 45 AI tools. 9 automated YouTube channels. Ex-Delta Air Lines. Open source builder.">
+    <meta property="og:title" content="Amrendra Mishra — VP @ JPMorgan Chase">
+    <meta property="og:description" content="Built 45 AI tools that run locally for free. 9 automated YouTube channels at ₹0/month.">
+    <meta property="og:url" content="https://amrendramishra.github.io">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0d1117;
-            --bg-secondary: #161b22;
-            --bg-card: #1c2128;
-            --text-primary: #f0f6fc;
-            --text-secondary: #8b949e;
-            --accent: #58a6ff;
-            --accent-green: #3fb950;
-            --accent-purple: #bc8cff;
-            --accent-orange: #d29922;
-            --border: #30363d;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary: #6c63ff;
+            --primary-light: #a29bfe;
+            --bg: #07070d;
+            --bg-card: rgba(255,255,255,0.02);
+            --border: rgba(255,255,255,0.06);
+            --text: #e8e8e8;
+            --text-dim: #6b7280;
+            --accent-green: #10b981;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.6; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Animated gradient background */
+        .bg-gradient { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; }
+        .bg-gradient::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(108,99,255,0.03) 60deg, transparent 120deg, rgba(59,130,246,0.03) 180deg, transparent 240deg, rgba(16,185,129,0.03) 300deg, transparent 360deg); animation: rotate 30s linear infinite; }
+        @keyframes rotate { to { transform: rotate(360deg); } }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(20px); background: rgba(7,7,13,0.8); border-bottom: 1px solid var(--border); z-index: 1000; }
+        nav .logo { font-weight: 700; font-size: 1.2rem; background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        nav .nav-links { display: flex; gap: 2rem; }
+        nav .nav-links a { color: var(--text-dim); font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        nav .nav-links a:hover { color: var(--primary-light); }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        /* Hero */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 6rem 2rem 4rem; }
+        .hero-content { max-width: 800px; text-align: center; }
+        .hero-badge { display: inline-block; padding: 0.4rem 1rem; border-radius: 50px; background: rgba(108,99,255,0.1); border: 1px solid rgba(108,99,255,0.2); color: var(--primary-light); font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem; animation: fadeInDown 0.8s; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; animation: fadeInUp 0.8s; }
+        .hero h1 .gradient { background: linear-gradient(135deg, var(--primary), var(--primary-light), #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero .desc { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; margin: 0 auto 2.5rem; animation: fadeInUp 1s; }
+        .hero-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 1.2s; }
+        .btn { padding: 0.8rem 1.8rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: #5b52e0; transform: translateY(-3px); box-shadow: 0 10px 40px rgba(108,99,255,0.3); }
+        .btn-secondary { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text); }
+        .btn-secondary:hover { border-color: var(--primary); transform: translateY(-3px); }
 
-        /* Hero Section */
-        .hero {
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 80px 20px;
-            background: radial-gradient(ellipse at top, #1a1f35 0%, var(--bg-primary) 70%);
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        /* Sections */
+        .section { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
+        .section-label { font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .section h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .section .subtitle { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 3rem; max-width: 600px; }
 
-        .hero-content .tagline {
-            font-size: 1.4rem;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-        }
+        /* Stats */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; margin: 4rem 0; }
+        .stat-card { text-align: center; padding: 2rem 1rem; border-radius: 16px; background: var(--bg-card); border: 1px solid var(--border); transition: 0.3s; position: relative; overflow: hidden; }
+        .stat-card:hover { border-color: rgba(108,99,255,0.3); transform: translateY(-5px); }
+        .stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0; transition: 0.3s; }
+        .stat-card:hover::before { opacity: 1; }
+        .stat-number { font-size: 2.8rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { font-size: 0.85rem; color: var(--text-dim); margin-top: 0.3rem; }
 
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
+        /* Experience */
+        .timeline { position: relative; padding-left: 2rem; }
+        .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--primary), transparent); }
+        .timeline-item { position: relative; margin-bottom: 3rem; padding-left: 2rem; }
+        .timeline-item::before { content: ''; position: absolute; left: -2.35rem; top: 0.5rem; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); border: 3px solid var(--bg); }
+        .timeline-item h3 { font-size: 1.3rem; font-weight: 700; color: #fff; }
+        .timeline-item .meta { color: var(--primary-light); font-size: 0.9rem; margin: 0.3rem 0 0.5rem; }
+        .timeline-item .desc { color: var(--text-dim); font-size: 0.95rem; }
+        .timeline-item .tags { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .tag { padding: 0.2rem 0.7rem; border-radius: 6px; background: rgba(108,99,255,0.1); color: var(--primary-light); font-size: 0.75rem; font-weight: 500; }
 
-        .stat-item {
-            text-align: center;
-        }
+        /* Projects */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .project-card { padding: 2rem; border-radius: 16px; background: var(--bg-card); border: 1px solid var(--border); transition: all 0.3s; position: relative; overflow: hidden; }
+        .project-card:hover { border-color: rgba(108,99,255,0.4); transform: translateY(-5px); box-shadow: 0 20px 60px rgba(108,99,255,0.1); }
+        .project-card .icon { font-size: 2rem; margin-bottom: 1rem; }
+        .project-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .project-card p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.6; }
+        .project-card .tags { margin-top: 1rem; }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
+        /* YouTube Grid */
+        .yt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+        .yt-card { padding: 1.2rem; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border); text-align: center; transition: 0.3s; }
+        .yt-card:hover { border-color: rgba(255,0,0,0.3); transform: translateY(-3px); }
+        .yt-card .name { font-weight: 600; font-size: 0.9rem; color: #fff; }
+        .yt-card .niche { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.3rem; }
+        .yt-card .schedule { font-size: 0.7rem; color: var(--accent-green); margin-top: 0.2rem; }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        /* Tech */
+        .tech-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+        .tech-item { padding: 0.6rem 1.2rem; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--border); font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
+        .tech-item:hover { border-color: var(--primary); color: var(--primary-light); }
 
-        /* Section styles */
-        section {
-            padding: 80px 0;
-        }
+        /* CTA */
+        .cta { text-align: center; padding: 6rem 2rem; background: radial-gradient(ellipse at center, rgba(108,99,255,0.08), transparent 70%); }
+        .cta h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .cta p { color: var(--text-dim); margin-bottom: 2rem; font-size: 1.1rem; }
 
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 40px;
-            text-align: center;
-            color: var(--text-primary);
-        }
+        /* Footer */
+        footer { text-align: center; padding: 3rem; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.85rem; }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--gradient);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 24px;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            transition: transform 0.2s, border-color 0.2s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient);
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        .project-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--accent);
-        }
-
-        .project-desc {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-            min-height: 40px;
-        }
-
-        .project-meta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .project-meta span {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .lang-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .lang-python { background: #3572A5; }
-        .lang-javascript { background: #f1e05a; }
-        .lang-typescript { background: #3178c6; }
-        .lang-java { background: #b07219; }
-        .lang-html { background: #e34c26; }
-        .lang-css { background: #563d7c; }
-        .lang-shell { background: #89e051; }
-        .lang-go { background: #00ADD8; }
-        .lang-rust { background: #dea584; }
-
-        /* Tech Stack */
-        .tech-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .tech-badge {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            transition: border-color 0.2s;
-        }
-
-        .tech-badge:hover {
-            border-color: var(--accent);
-        }
-
-        /* GitHub Stats */
-        .stats-section {
-            background: var(--bg-secondary);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            text-align: center;
-        }
-
-        .stats-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-        }
-
-        .stats-card .number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-green);
-        }
-
-        .stats-card .label {
-            color: var(--text-secondary);
-            margin-top: 4px;
-        }
-
-        /* Contact / Footer */
-        .footer {
-            text-align: center;
-            padding: 60px 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 10px 20px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            transition: all 0.2s;
-        }
-
-        .social-links a:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-
-        /* Loading state */
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-secondary);
-        }
-
-        .loading::after {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--border);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-stats {
-                gap: 20px;
-            }
+            nav .nav-links { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
         }
+
+        /* Scroll animations */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
-    <!-- Hero -->
+    <div class="bg-gradient"></div>
+
+    <nav>
+        <div class="logo">AM</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#youtube">YouTube</a>
+            <a href="https://github.com/amrendramishra/ai-tools">GitHub</a>
+        </div>
+    </nav>
+
     <section class="hero">
         <div class="hero-content">
-            <h1>Amrendra Mishra</h1>
-            <p class="tagline">Software Developer • Open Source Enthusiast • YouTube Creator</p>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-number" id="repo-count">--</div>
-                    <div class="stat-label">Repositories</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="star-count">--</div>
-                    <div class="stat-label">Stars</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="follower-count">--</div>
-                    <div class="stat-label">Followers</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="lang-count">--</div>
-                    <div class="stat-label">Languages</div>
-                </div>
+            <div class="hero-badge">✨ Open to collaboration</div>
+            <h1>I build <span class="gradient">AI tools</span> that run locally, free, and private.</h1>
+            <p class="desc">Vice President at JPMorgan Chase. 45 open-source AI tools. 9 automated YouTube channels. Previously built mission-critical checkout systems at Delta Air Lines.</p>
+            <div class="hero-links">
+                <a href="https://github.com/amrendramishra/ai-tools" class="btn btn-primary">⚡ View 45 AI Tools</a>
+                <a href="https://www.linkedin.com/in/amrendra-narayan-mishra-198187167/" class="btn btn-secondary">💼 LinkedIn</a>
+                <a href="https://www.kaggle.com/amrendranmishra" class="btn btn-secondary">📊 Kaggle</a>
+                <a href="https://amrendranmishra.dev" class="btn btn-secondary">🌐 Portfolio</a>
             </div>
         </div>
     </section>
 
-    <!-- Tech Stack -->
-    <section class="container">
-        <h2 class="section-title">🛠️ Tech Stack</h2>
-        <div class="tech-grid" id="tech-stack">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">Java</span>
-            <span class="tech-badge">JavaScript</span>
-            <span class="tech-badge">TypeScript</span>
-            <span class="tech-badge">Shell</span>
-            <span class="tech-badge">HTML/CSS</span>
-            <span class="tech-badge">Git</span>
-            <span class="tech-badge">Docker</span>
-            <span class="tech-badge">AWS</span>
-            <span class="tech-badge">GitHub Actions</span>
-            <span class="tech-badge">Ollama / AI</span>
-            <span class="tech-badge">REST APIs</span>
+    <section class="section" id="about">
+        <div class="stats-grid reveal">
+            <div class="stat-card"><div class="stat-number">45</div><div class="stat-label">AI Tools Built</div></div>
+            <div class="stat-card"><div class="stat-number">9</div><div class="stat-label">YouTube Channels</div></div>
+            <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Local AI Models</div></div>
+            <div class="stat-card"><div class="stat-number">₹0</div><div class="stat-label">Monthly Cost</div></div>
+            <div class="stat-card"><div class="stat-number">24/7</div><div class="stat-label">Automation</div></div>
+            <div class="stat-card"><div class="stat-number">8+</div><div class="stat-label">Years Experience</div></div>
         </div>
     </section>
 
-    <!-- Projects -->
-    <section class="container">
-        <h2 class="section-title">🚀 Projects</h2>
-        <div class="projects-grid" id="projects-grid">
-            <div class="loading">Loading repositories</div>
+    <section class="section" id="experience">
+        <div class="section-label reveal">Career</div>
+        <h2 class="reveal">Experience</h2>
+        <div class="timeline reveal">
+            <div class="timeline-item">
+                <h3>Vice President</h3>
+                <div class="meta">JPMorgan Chase • July 2026 – Present</div>
+                <div class="desc">Lead Software Engineer building enterprise-scale financial systems.</div>
+                <div class="tags"><span class="tag">Java</span><span class="tag">Microservices</span><span class="tag">Cloud</span></div>
+            </div>
+            <div class="timeline-item">
+                <h3>Software Development Engineer</h3>
+                <div class="meta">Delta Air Lines • Previously</div>
+                <div class="desc">Built OmniCheckout & NextGen Checkout — mission-critical eCommerce platforms processing millions of flight bookings. Managed systems across 6 AWS platforms with Active/Active multi-region deployment.</div>
+                <div class="tags"><span class="tag">Java 21</span><span class="tag">Quarkus</span><span class="tag">AWS Lambda</span><span class="tag">DynamoDB</span><span class="tag">API Gateway</span><span class="tag">CDK</span></div>
+            </div>
+            <div class="timeline-item">
+                <h3>AI & Automation Builder</h3>
+                <div class="meta">Side Projects • 2024 – Present</div>
+                <div class="desc">Built 45 AI-powered tools using local LLMs (Ollama). Automated 9 YouTube channels generating daily content at zero cost. Created Voice Commander to control all tools with "Hey Jarvis".</div>
+                <div class="tags"><span class="tag">Python</span><span class="tag">Ollama</span><span class="tag">LangChain</span><span class="tag">MCP</span><span class="tag">ChromaDB</span><span class="tag">Whisper</span></div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <h2 class="section-title">🤝 Connect</h2>
-        <div class="social-links">
-            <a href="https://github.com/amrendramishra" target="_blank">GitHub</a>
-            <a href="https://youtube.com/@gyaanin5" target="_blank">YouTube</a>
-            <a href="https://linkedin.com/in/amrendramishra" target="_blank">LinkedIn</a>
+    <section class="section" id="projects">
+        <div class="section-label reveal">Open Source</div>
+        <h2 class="reveal">Featured Projects</h2>
+        <p class="subtitle reveal">All 45 tools are open source and run locally with zero cloud costs.</p>
+        <div class="projects-grid reveal">
+            <div class="project-card">
+                <div class="icon">🎤</div>
+                <h3>Voice Commander Pro</h3>
+                <p>Control 45 AI tools with voice. Wake word "Hey Jarvis", global hotkey Ctrl+Space, command chaining, offline Whisper recognition.</p>
+                <div class="tags"><span class="tag">Whisper</span><span class="tag">PyObjC</span><span class="tag">Ollama</span></div>
+            </div>
+            <div class="project-card">
+                <div class="icon">🤖</div>
+                <h3>Multi-Agent Crew</h3>
+                <p>5 AI agents collaborate in a pipeline: Researcher → Writer → Editor → Reviewer → Publisher. Zero dependencies, pure Python.</p>
+                <div class="tags"><span class="tag">Agents</span><span class="tag">Pipeline</span><span class="tag">LLM</span></div>
+            </div>
+            <div class="project-card">
+                <div class="icon">🌐</div>
+                <h3>Local ChatGPT UI</h3>
+                <p>Beautiful web interface for all Ollama models. Streaming responses, markdown, code highlighting, multiple conversations.</p>
+                <div class="tags"><span class="tag">HTML/JS</span><span class="tag">SSE</span><span class="tag">Dark UI</span></div>
+            </div>
+            <div class="project-card">
+                <div class="icon">📺</div>
+                <h3>Shorts Factory</h3>
+                <p>One command generates YouTube Shorts scripts for all 9 channels. Hook + body + CTA + hashtags. 105 hook templates.</p>
+                <div class="tags"><span class="tag">Content AI</span><span class="tag">Hindi</span><span class="tag">YouTube</span></div>
+            </div>
+            <div class="project-card">
+                <div class="icon">🔍</div>
+                <h3>RAG Pipeline</h3>
+                <p>Index documents → ask questions in natural language → get sourced answers. ChromaDB + Ollama, fully local and private.</p>
+                <div class="tags"><span class="tag">ChromaDB</span><span class="tag">Embeddings</span><span class="tag">RAG</span></div>
+            </div>
+            <div class="project-card">
+                <div class="icon">🧠</div>
+                <h3>Learning Agent</h3>
+                <p>AI that remembers everything about you. Gets smarter over time, predicts needs, proactive suggestions. Persistent SQLite memory.</p>
+                <div class="tags"><span class="tag">Memory</span><span class="tag">Context</span><span class="tag">Personal AI</span></div>
+            </div>
         </div>
-        <p style="margin-top: 30px; color: var(--text-secondary); font-size: 0.85rem;">
-            Built with ❤️ by Amrendra Mishra • Auto-generated portfolio
-        </p>
+        <div style="text-align:center; margin-top:2rem;" class="reveal">
+            <a href="https://github.com/amrendramishra/ai-tools" class="btn btn-primary">View All 45 Projects →</a>
+        </div>
+    </section>
+
+    <section class="section" id="youtube">
+        <div class="section-label reveal">Content Empire</div>
+        <h2 class="reveal">9 YouTube Channels — Fully Automated</h2>
+        <p class="subtitle reveal">AI generates scripts, TTS creates voiceover, MoviePy builds video, YouTube API uploads. Daily. ₹0/month.</p>
+        <div class="yt-grid reveal">
+            <a class="yt-card" href="https://youtube.com/@gyaaninfive"><div class="name">Gyaan in 5</div><div class="niche">Knowledge & Books</div><div class="schedule">Daily 6:15 PM</div></a>
+            <a class="yt-card" href="https://youtube.com/@TechIn5Hindi"><div class="name">Tech in 5 Hindi</div><div class="niche">Tech News</div><div class="schedule">Daily 11:30 AM</div></a>
+            <a class="yt-card" href="https://youtube.com/@Moneyin5min"><div class="name">Money in 5</div><div class="niche">Finance Tips</div><div class="schedule">Daily 9:30 AM</div></a>
+            <a class="yt-card" href="https://youtube.com/@Superhuman60s"><div class="name">Superhuman 60s</div><div class="niche">Productivity</div><div class="schedule">Daily 2:30 PM</div></a>
+            <a class="yt-card" href="https://youtube.com/@BhootFMinHindi"><div class="name">Horror Ki Kahani</div><div class="niche">Horror Stories</div><div class="schedule">Daily 9:30 PM</div></a>
+            <a class="yt-card" href="https://youtube.com/@PyaarKaPsychology"><div class="name">Pyaar Ka Psychology</div><div class="niche">Relationships</div><div class="schedule">Daily 8:30 PM</div></a>
+            <a class="yt-card" href="https://youtube.com/@ZehreelaSach"><div class="name">Zeheela Sach</div><div class="niche">Dark Facts</div><div class="schedule">Daily 7:30 PM</div></a>
+            <a class="yt-card" href="https://youtube.com/@ApnaHaq"><div class="name">Apna Haq</div><div class="niche">Legal Rights</div><div class="schedule">Daily 12:30 PM</div></a>
+            <a class="yt-card" href="https://youtube.com/@AgarAisaHoToh"><div class="name">Agar Aisa Ho Toh</div><div class="niche">Hypothetical</div><div class="schedule">Daily 1:30 PM</div></a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-label reveal">Skills</div>
+        <h2 class="reveal">Tech Stack</h2>
+        <div class="tech-grid reveal">
+            <span class="tech-item">Python</span><span class="tech-item">Java 21</span><span class="tech-item">Kotlin</span><span class="tech-item">TypeScript</span><span class="tech-item">Go</span><span class="tech-item">React</span><span class="tech-item">AWS Lambda</span><span class="tech-item">DynamoDB</span><span class="tech-item">Docker</span><span class="tech-item">Quarkus</span><span class="tech-item">LangChain</span><span class="tech-item">Ollama</span><span class="tech-item">ChromaDB</span><span class="tech-item">MCP Protocol</span><span class="tech-item">Redis</span><span class="tech-item">Terraform</span><span class="tech-item">CDK</span><span class="tech-item">GitLab CI</span><span class="tech-item">Flutter</span><span class="tech-item">FastAPI</span>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2 class="reveal">Let's Connect</h2>
+        <p class="reveal">Open to collaboration, open source contributions, and interesting conversations about AI.</p>
+        <div class="hero-links reveal">
+            <a href="https://github.com/amrendramishra" class="btn btn-primary">GitHub</a>
+            <a href="https://www.linkedin.com/in/amrendra-narayan-mishra-198187167/" class="btn btn-secondary">LinkedIn</a>
+            <a href="https://www.kaggle.com/amrendranmishra" class="btn btn-secondary">Kaggle</a>
+            <a href="https://amrendranmishra.dev" class="btn btn-secondary">Portfolio</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Amrendra Mishra • Built with ❤️ and AI • <a href="https://github.com/amrendramishra/ai-tools">Open Source</a></p>
     </footer>
 
     <script>
-        const GITHUB_USER = 'amrendramishra';
-
-        const langColors = {
-            'Python': '#3572A5', 'JavaScript': '#f1e05a', 'TypeScript': '#3178c6',
-            'Java': '#b07219', 'HTML': '#e34c26', 'CSS': '#563d7c',
-            'Shell': '#89e051', 'Go': '#00ADD8', 'Rust': '#dea584',
-            'C++': '#f34b7d', 'C': '#555555', 'Ruby': '#701516',
-            'PHP': '#4F5D95', 'Swift': '#ffac45', 'Kotlin': '#A97BFF',
-        };
-
-        async function fetchGitHubData() {
-            try {
-                // Fetch user info
-                const userResp = await fetch(`https://api.github.com/users/${GITHUB_USER}`);
-                const user = await userResp.json();
-
-                document.getElementById('follower-count').textContent = user.followers || 0;
-                document.getElementById('repo-count').textContent = user.public_repos || 0;
-
-                // Fetch repos
-                let repos = [];
-                let page = 1;
-                while (true) {
-                    const resp = await fetch(
-                        `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&page=${page}&sort=updated`
-                    );
-                    const data = await resp.json();
-                    if (!data.length) break;
-                    repos = repos.concat(data);
-                    page++;
+        // Scroll reveal animations
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => observer.observe(el));
 
-                // Stats
-                const totalStars = repos.reduce((sum, r) => sum + r.stargazers_count, 0);
-                const languages = new Set(repos.map(r => r.language).filter(Boolean));
-
-                document.getElementById('star-count').textContent = totalStars;
-                document.getElementById('lang-count').textContent = languages.size;
-
-                // Render projects
-                const grid = document.getElementById('projects-grid');
-                grid.innerHTML = '';
-
-                // Sort by stars, then updated
-                repos.sort((a, b) => b.stargazers_count - a.stargazers_count || 
-                    new Date(b.updated_at) - new Date(a.updated_at));
-
-                repos.forEach(repo => {
-                    const langColor = langColors[repo.language] || '#8b949e';
-                    const updated = new Date(repo.updated_at).toLocaleDateString('en-US', {
-                        year: 'numeric', month: 'short'
-                    });
-
-                    const card = document.createElement('div');
-                    card.className = 'project-card';
-                    card.innerHTML = `
-                        <a href="${repo.html_url}" target="_blank" style="text-decoration: none;">
-                            <div class="project-name">${repo.name}</div>
-                        </a>
-                        <div class="project-desc">${repo.description || 'No description'}</div>
-                        <div class="project-meta">
-                            ${repo.language ? `<span><span class="lang-dot" style="background:${langColor}"></span> ${repo.language}</span>` : ''}
-                            <span>⭐ ${repo.stargazers_count}</span>
-                            <span>🍴 ${repo.forks_count}</span>
-                            <span>📅 ${updated}</span>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                });
-
-            } catch (error) {
-                document.getElementById('projects-grid').innerHTML = 
-                    `<p style="color: var(--text-secondary);">Error loading repos. Check console.</p>`;
-                console.error('Error fetching GitHub data:', error);
-            }
-        }
-
-        fetchGitHubData();
+        // Smooth nav background
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.scrollY > 50 ? 'rgba(7,7,13,0.95)' : 'rgba(7,7,13,0.8)';
+        });
     </script>
 </body>
 </html>
